@@ -1,0 +1,116 @@
+= UserManagerClient
+
+This project rocks and uses MIT-LICENSE.
+
+This is a full engine used to communicate with UserManager
+
+THIS IS A WORK IN PROGRESS.
+
+= Features
+
+* Single sign on
+
+* Custom fields
+
+* Multiapp authentication
+
+* Avatar
+
+* More API requests
+
+* User account tracking features such as last signed in ip, last sign in date, sign in count
+
+* Reset password
+
+* Lock an account
+
+= ToDo
+
+* Remember me button 
+
+= Installation
+
+UserManagerClient:
+
+    gem 'user_manager_client', :path => '../UserManagerClient'
+
+    rails s -p 3001
+
+UserManager:
+
+    rake db:migrate
+
+    rails s
+
+Go to 
+
+    http://localhost:3000/oauth/applications
+
+Create a new application and set the callback to be
+
+    http://localhost:3001/auth/usermanager/callback
+
+Copy the created application key and secret into 
+
+    UserManagerClient/lib/user_manager_client/engine.rb
+
+= Usage
+
+To use the methods of this engine, add the following line at the top of your application controller
+
+    require UserManagerClient::Engine.config.root + 'app' + 'controllers' + 'application_controller'
+
+This gives you access to the following methods
+
+    check_login
+
+        Use this as a before_filter, it will automatically redirect to the login page if the user is not logged in
+        I suggest using this on every page that requires information regarding the current user.
+
+    logged_in?
+
+        returns a boolean, self explanatory
+
+    uid
+
+    first_name
+
+    last_name
+
+    email
+
+    role
+
+If you need information regarding the current user's address
+
+    @addresses = access_token.get(UserManagerClient::Engine.config.addresses_api_call).parsed if access_token
+        ["address_type"]
+        ["street_1"]
+        ["street_2"]
+        ["city"]
+        ["zip"]
+
+If you need information regarding the current user's high school information
+
+    @high_school_info = access_token.get(UserManagerClient::Engine.config.high_school_info_api_call).parsed if access_token
+        ["grad_year"]			# date use strftime("%Y")
+        ["gpa"]						# decimal
+        ["sat_m"]					# integer
+        ["sat_r"]
+        ["sat_w"]
+        ["act_m"]
+        ["act_r"]
+        ["act_e"]
+        ["act_s"]
+        ["interests"]    # text
+
+If you need information regarding the current user's college information
+
+    @college_info = access_token.get(UserManagerClient::Engine.config.college_info_api_call).parsed if access_token
+        ["grad_year"]			# date use strftime("%Y")
+        ["major"]					# string
+
+= Configuration
+
+In lib\user_manager_client\engine.rb there are config variables for development and production environments
+

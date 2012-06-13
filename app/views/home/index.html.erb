@@ -1,0 +1,17 @@
+<% if logged_in? %>
+
+  <p id="logged_in">
+    Logged in as <strong><%= first_name %></strong>.
+      <%= link_to 'EDIT', UserManagerClient::Engine.config.user_manager_users_url+uid.to_s+"/edit" %><br/>
+    <%= link_to "Sign Out", signout_path %>
+  </p>
+  <% @addresses.each do |a| %>
+    <%= a['street_1'] %><br/>
+  <% end %>
+
+<% else %>
+  <p><strong>Currently not signed in.</strong></p>
+  <p>
+    <%= link_to "Sign in", login_path %>
+  </p>
+<% end %>
