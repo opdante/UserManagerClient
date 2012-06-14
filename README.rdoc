@@ -102,21 +102,21 @@ If you need information regarding the current user's high school information
 
     @high_school_info = user_manager_access_token.get(UserManagerClient::Engine.config.high_school_info_api_call).parsed if user_manager_access_token
         ["grad_year"]			# date use strftime("%Y")
-        ["gpa"]						# decimal
-        ["sat_m"]					# integer
+        ["gpa"]					# decimal
+        ["sat_m"]				# integer
         ["sat_r"]
         ["sat_w"]
         ["act_m"]
         ["act_r"]
         ["act_e"]
         ["act_s"]
-        ["interests"]    # text
+        ["interests"]           # text
 
 If you need information regarding the current user's college information
 
     @college_info = user_manager_access_token.get(UserManagerClient::Engine.config.college_info_api_call).parsed if user_manager_access_token
         ["grad_year"]			# date use strftime("%Y")
-        ["major"]					# string
+        ["major"]				# string
 
 You also have preconfigured which use values from config
 
