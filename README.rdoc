@@ -81,6 +81,12 @@ This gives you access to the following methods
 
     role
 
+    high_school_id
+
+    college_id
+
+    photo_url
+
 If you need information regarding the current user's address
 
     @addresses = access_token.get(UserManagerClient::Engine.config.addresses_api_call).parsed if access_token
@@ -109,6 +115,12 @@ If you need information regarding the current user's college information
     @college_info = access_token.get(UserManagerClient::Engine.config.college_info_api_call).parsed if access_token
         ["grad_year"]			# date use strftime("%Y")
         ["major"]					# string
+
+You also have preconfigured which use values from config
+
+	login_path
+
+	logout_path
 
 = Configuration
 

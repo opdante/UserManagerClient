@@ -3,7 +3,7 @@
   <p id="logged_in">
     Logged in as <strong><%= first_name %></strong>.
       <%= link_to 'EDIT', UserManagerClient::Engine.config.user_manager_users_url+uid.to_s+"/edit" %><br/>
-    <%= link_to "Sign Out", signout_path %>
+    <%= link_to "Sign Out", logout_path %>
   </p>
   <% @addresses.each do |a| %>
     <%= a['street_1'] %><br/>
