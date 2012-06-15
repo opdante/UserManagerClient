@@ -73,6 +73,8 @@ This gives you access to the following methods
 
     uid
 
+    username
+
     first_name
 
     last_name

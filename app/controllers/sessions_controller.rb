@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     reset_session
     auth = request.env["omniauth.auth"]
     cookies.signed[:uid] = { :value => auth['uid'], :httponly => true, :expires => 2.hours.from_now }
+    cookies.signed[:username] = { :value => auth['info']['username'], :httponly => true, :expires => 2.hours.from_now }
     cookies.signed[:first_name] = { :value => auth['info']['first_name'], :httponly => true, :expires => 2.hours.from_now }
     cookies.signed[:last_name] = { :value => auth['info']['last_name'], :httponly => true, :expires => 2.hours.from_now }
     cookies.signed[:email] = { :value => auth['info']['email'], :httponly => true, :expires => 2.hours.from_now }
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete :uid
+    cookies.delete :username
     cookies.delete :first_name
     cookies.delete :last_name
     cookies.delete :email

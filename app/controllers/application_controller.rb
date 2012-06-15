@@ -41,6 +41,11 @@ private
   end
   helper_method :uid
 
+  def username
+    cookies.signed[:username]
+  end
+  helper_method :username
+
   def high_school_id
     cookies.signed[:high_school_id]
   end
