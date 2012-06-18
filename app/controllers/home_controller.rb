@@ -1,4 +1,4 @@
-class HomeController < UserManagerClientController
+class HomeController < Application
 
 	before_filter :check_login
 

@@ -1,4 +1,4 @@
-class SessionsController < UserManagerClientController
+class SessionsController < ApplicationController
 
   def create
     reset_session
