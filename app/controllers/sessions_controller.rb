@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     cookies.signed[:college_id] = { :value => auth['info']['college_id'], :httponly => true, :expires => 2.hours.from_now }
     cookies.signed[:high_school_id] = { :value => auth['info']['high_school_id'], :httponly => true, :expires => 2.hours.from_now }
     cookies.signed[:photo_url] = { :value => auth['info']['photo_url'], :httponly => true, :expires => 2.hours.from_now }
-    cookies.signed[:access_token] = { :value => auth['credentials']['token'], :httponly => true, :expires => 2.hours.from_now }
+    cookies.signed[:user_manager_access_token] = { :value => auth['credentials']['token'], :httponly => true, :expires => 2.hours.from_now }
     redirect_to root_url
   end
 
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     cookies.delete :college_id
     cookies.delete :high_school_id
     cookies.delete :photo_url
-    cookies.delete :access_token
+    cookies.delete :user_manager_access_token
     redirect_to "#{UserManagerClient::Engine.config.user_manager_url}/logout"
   end
 end

@@ -91,7 +91,7 @@ This gives you access to the following methods
 
 If you need information regarding the current user's address
 
-    @addresses = access_token.get(UserManagerClient::Engine.config.addresses_api_call).parsed if access_token
+    @addresses = user_manager_access_token.get(UserManagerClient::Engine.config.addresses_api_call).parsed if user_manager_access_token
         ["address_type"]
         ["street_1"]
         ["street_2"]
@@ -100,7 +100,7 @@ If you need information regarding the current user's address
 
 If you need information regarding the current user's high school information
 
-    @high_school_info = access_token.get(UserManagerClient::Engine.config.high_school_info_api_call).parsed if access_token
+    @high_school_info = user_manager_access_token.get(UserManagerClient::Engine.config.high_school_info_api_call).parsed if user_manager_access_token
         ["grad_year"]			# date use strftime("%Y")
         ["gpa"]						# decimal
         ["sat_m"]					# integer
@@ -114,7 +114,7 @@ If you need information regarding the current user's high school information
 
 If you need information regarding the current user's college information
 
-    @college_info = access_token.get(UserManagerClient::Engine.config.college_info_api_call).parsed if access_token
+    @college_info = user_manager_access_token.get(UserManagerClient::Engine.config.college_info_api_call).parsed if user_manager_access_token
         ["grad_year"]			# date use strftime("%Y")
         ["major"]					# string
 

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from OAuth2::Error do |exception|
     if exception.response.status == 401
       cookies.delete :user_id
-      cookies.delete :access_token
+      cookies.delete :user_manager_access_token
       redirect_to root_url, alert: "Access token expired, try signing in again."
     end
   end
@@ -15,9 +15,9 @@ private
     @oauth_client ||= OAuth2::Client.new(UserManagerClient::Engine.config.api_key, UserManagerClient::Engine.config.api_secret, site: UserManagerClient::Engine.config.user_manager_url)
   end
 
-  def access_token
-    if cookies.signed[:access_token]
-      @access_token ||= OAuth2::AccessToken.new(oauth_client, cookies.signed[:access_token])
+  def user_manager_access_token
+    if cookies.signed[:user_manager_access_token]
+      @user_manager_access_token ||= OAuth2::AccessToken.new(oauth_client, cookies.signed[:user_manager_access_token])
     end
   end
 
