@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from OAuth2::Error do |exception|
     if exception.response.status == 401
-      cookies.delete :uid
+      cookies.delete :user_id
       cookies.delete :access_token
       redirect_to root_url, alert: "Access token expired, try signing in again."
     end
@@ -22,24 +22,24 @@ private
   end
 
   def check_login
-    if cookies.signed[:uid].nil?
+    if cookies.signed[:user_id].nil?
       redirect_to UserManagerClient::Engine.config.user_manager_auth_url
     end
   end
   helper_method :check_login
 
   def logged_in?
-    if cookies.signed[:uid].nil?
+    if cookies.signed[:user_id].nil?
       return false
     end
     return true
   end
   helper_method :logged_in?
 
-  def uid
-    cookies.signed[:uid]
+  def user_id
+    cookies.signed[:user_id]
   end
-  helper_method :uid
+  helper_method :user_id
 
   def username
     cookies.signed[:username]
