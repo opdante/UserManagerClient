@@ -4,9 +4,10 @@ module UserManagerClient
 
   	self.configure do
   		if Rails.env.development?
-		  	config.api_key = '9d9ffbf8dc6dd5ddceb97382455e831ccef9222040e19cef43b49a9fd51b9a79'
-				config.api_secret = 'acc9b4f95be918a1c0c138f27612b31bd2fa05cb55c0505644a4125af2d7dcd1'
+		  	config.api_key = 'e512a873a592eb70675ac552355398c11c01e4db0d56128ca62a41840f8db501'
+				config.api_secret = '0dfa67c44e3652c09982741fb1573681a4c69b0c70da1c1538671637d12fbfd3'
 				config.user_manager_url = 'http://localhost:3000'
+        config.colleges_url = 'http://localhost:3002'
 		  elsif Rails.env.production?
 		  	config.api_key = ''
 		  	config.api_secret = ''
