@@ -70,6 +70,11 @@ private
   end
   helper_method :last_name
 
+  def photo_url
+    JSON_decode(cookies.signed[:user_manager_client])['photo_url']
+  end
+  helper_method :photo_url
+
   def email
     JSON_decode(cookies.signed[:user_manager_client])['email']
   end

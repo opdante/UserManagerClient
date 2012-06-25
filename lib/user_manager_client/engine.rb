@@ -6,7 +6,7 @@ module UserManagerClient
   		if Rails.env.development?
 		  	config.api_key = 'e512a873a592eb70675ac552355398c11c01e4db0d56128ca62a41840f8db501'
 				config.api_secret = '0dfa67c44e3652c09982741fb1573681a4c69b0c70da1c1538671637d12fbfd3'
-				config.user_manager_url = 'http://localhost:3000'
+				config.user_manager_url = 'http://localhost:3001'
         config.colleges_url = 'http://localhost:3002'
 		  elsif Rails.env.production?
 		  	config.api_key = ''
