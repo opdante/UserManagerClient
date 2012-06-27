@@ -89,6 +89,8 @@ This gives you access to the following methods
 
     photo_url
 
+    find_username(user_id)
+
 If you need information regarding the current user's address
 
     @addresses = user_manager_access_token.get(UserManagerClient::Engine.config.addresses_api_call).parsed if user_manager_access_token
