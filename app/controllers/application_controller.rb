@@ -95,5 +95,14 @@ private
   end
   helper_method :link_to_user
 
+  def find_first_name(user_id)
+    user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['first_name'] if user_manager_access_token
+  end
+  helper_method :find_first_name   
+
+  def find_last_name(user_id)
+    user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['last_name'] if user_manager_access_token
+  end
+  helper_method :find_last_name    
 
 end
