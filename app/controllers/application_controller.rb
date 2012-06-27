@@ -86,7 +86,7 @@ private
   helper_method :role
 
   def find_username(user_id)
-    user_manager_access_token.get("/api/v1/users/#{p.user_id}").parsed['role'] if user_manager_access_token
+    user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['username'] if user_manager_access_token
   end
   helper_method :find_username
 
