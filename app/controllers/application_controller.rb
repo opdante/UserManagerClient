@@ -90,4 +90,10 @@ private
   end
   helper_method :find_username
 
+  def link_to_user(user_id)
+    UserManagerClient::Engine.config.user_manager_url+"/users/#{user_id}"
+  end
+  helper_method :link_to_user
+
+
 end
