@@ -40,6 +40,11 @@ private
   end
   helper_method :logged_in?
 
+  def current_user
+    JSON_decode(cookies.signed[:user_manager_client])
+  end
+  helper_method :current_user
+
   def user_id
     JSON_decode(cookies.signed[:user_manager_client])['user_id']
   end
