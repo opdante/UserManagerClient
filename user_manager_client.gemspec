@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = UserManagerClient::VERSION
   s.authors     = ["Yihuan Zhou"]
   s.email       = ["yihuan.zhou@gmail.com"]
-  s.homepage    = "collegezen.com"
+  s.homepage    = "http://www.collegezen.com"
   s.summary     = "Provides access to the UserManager API"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
