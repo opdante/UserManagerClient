@@ -1,6 +1,6 @@
 module UserManagerClient
   class Engine < ::Rails::Engine
-  	require 'omniauth-oauth2'
+    require 'omniauth-oauth2'
 
     initializer "api.init_task", :before => :load_config_initializers do |app|
       UserManagerClientConfig = Struct.new(:api_key, :api_secret)
@@ -26,5 +26,7 @@ module UserManagerClient
 		  config.high_school_info_api_call = '/api/v1/users/high_school_info'
 		  config.college_info_api_call = '/api/v1/users/college_info'
 		end
+
+
   end
 end
