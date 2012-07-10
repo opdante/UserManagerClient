@@ -2,10 +2,15 @@ module UserManagerClient
   class Engine < ::Rails::Engine
   	require 'omniauth-oauth2'
 
+    initializer "api.init_task", :before => :load_config_initializers do |app|
+      UserManagerClientConfig = Struct.new(:api_key, :api_secret)
+      app.config.user_manager_client = UserManagerClientConfig.new
+      app.config.user_manager_client.api_key = ""
+      app.config.user_manager_client.api_secret = ""
+    end
+
   	self.configure do
   		if Rails.env.development?
-		  	config.api_key = 'e512a873a592eb70675ac552355398c11c01e4db0d56128ca62a41840f8db501'
-				config.api_secret = '0dfa67c44e3652c09982741fb1573681a4c69b0c70da1c1538671637d12fbfd3'
 				config.user_manager_url = 'http://localhost:3000'
         config.colleges_url = 'http://localhost:3002'
 		  elsif Rails.env.production?

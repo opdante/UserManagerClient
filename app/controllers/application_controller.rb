@@ -20,6 +20,7 @@ private
   end
 
   def user_manager_access_token
+
     if JSON_decode(cookies.signed[:user_manager_client])['access_token']
       @user_manager_access_token ||= OAuth2::AccessToken.new(oauth_client, JSON_decode(cookies.signed[:user_manager_client])['access_token'])
     end
