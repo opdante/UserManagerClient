@@ -27,6 +27,5 @@ module UserManagerClient
 		  config.college_info_api_call = '/api/v1/users/college_info'
 		end
 
-
   end
 end
