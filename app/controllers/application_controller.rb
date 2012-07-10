@@ -16,7 +16,7 @@ private
 
 
   def oauth_client
-    @oauth_client ||= OAuth2::Client.new(UserManagerClient::Engine.config.api_key, UserManagerClient::Engine.config.api_secret, site: UserManagerClient::Engine.config.user_manager_url)
+    @oauth_client ||= OAuth2::Client.new(UserManagerClient::Engine.config.user_manager_client.api_key, UserManagerClient::Engine.config.user_manager_client.api_secret, site: UserManagerClient::Engine.config.user_manager_url)
   end
 
   def user_manager_access_token
