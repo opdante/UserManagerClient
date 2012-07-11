@@ -24,4 +24,8 @@ class SessionsController < ApplicationController
     cookies.delete :user_manager_client
     redirect_to "#{UserManagerClient::Engine.config.user_manager_url}/logout"
   end
+
+  def redirect
+    redirect_to UserManagerClient::Engine.config.user_manager_auth_url
+  end
 end
