@@ -16,10 +16,11 @@ private
 
 
   def oauth_client
-    @oauth_client ||= OAuth2::Client.new(UserManagerClient::Engine.config.api_key, UserManagerClient::Engine.config.api_secret, site: UserManagerClient::Engine.config.user_manager_url)
+    @oauth_client ||= OAuth2::Client.new(UserManagerClient::Engine.config.user_manager_client.api_key, UserManagerClient::Engine.config.user_manager_client.api_secret, site: UserManagerClient::Engine.config.user_manager_url)
   end
 
   def user_manager_access_token
+
     if JSON_decode(cookies.signed[:user_manager_client])['access_token']
       @user_manager_access_token ||= OAuth2::AccessToken.new(oauth_client, JSON_decode(cookies.signed[:user_manager_client])['access_token'])
     end
@@ -108,6 +109,16 @@ private
   def find_last_name(user_id)
     user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['last_name'] if user_manager_access_token
   end
-  helper_method :find_last_name    
+  helper_method :find_last_name  
+
+  def find_college(user_id)
+    user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['college_id'] if user_manager_access_token
+  end
+  helper_method :find_college
+
+  def find_user(user_id)
+    user_manager_access_token.get("/api/v1/users/#{user_id}") if user_manager_access_token
+  end
+  helper_method :find_user  
 
 end
