@@ -11,8 +11,8 @@ module UserManagerClient
 
   	self.configure do
   		if Rails.env.development?
-				config.user_manager_url = 'http://localhost:3000'
-        config.colleges_url = 'http://localhost:3002'
+			config.user_manager_url = 'http://localhost:3000'
+        		config.colleges_url = 'http://localhost:3002'
 		  elsif Rails.env.production?
 		  	config.api_key = ''
 		  	config.api_secret = ''
