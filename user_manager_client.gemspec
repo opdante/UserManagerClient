@@ -7,8 +7,8 @@ require "user_manager_client/version"
 Gem::Specification.new do |s|
   s.name        = "user_manager_client"
   s.version     = UserManagerClient::VERSION
-  s.authors     = ["Yihuan Zhou"]
-  s.email       = ["yihuan.zhou@gmail.com"]
+  s.authors     = ["Yihuan Zhou", "Jonathan Bender"]
+  s.email       = ["yihuan.zhou@gmail.com", "support@thecollegepeople.com"]
   s.homepage    = "http://www.collegezen.com"
   s.summary     = "Provides access to the UserManager API"
 
