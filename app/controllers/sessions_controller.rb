@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       :access_token => auth['credentials']['token']
     }
     cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now }
-    redirect_to root_url
+    redirect_to '/'
   end
 
   def destroy
