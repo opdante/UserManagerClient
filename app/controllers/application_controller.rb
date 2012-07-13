@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-private
-
   def JSON_decode(string)
     ActiveSupport::JSON.decode(string)
   end
@@ -36,7 +34,7 @@ private
   end
 
   def check_login
-    redirect_to UserManagerClient::Engine.config.user_manager_auth_url if logged_in?
+    redirect_to UserManagerClient::Engine.config.user_manager_auth_url unless logged_in?
   end
 
   def current_user
