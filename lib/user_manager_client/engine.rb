@@ -11,13 +11,12 @@ module UserManagerClient
 
   	self.configure do
   		if Rails.env.development?
-			config.user_manager_url = 'http://localhost:3000'
-        		config.colleges_url = 'http://localhost:3002'
-		  elsif Rails.env.production?
-		  	config.api_key = ''
-		  	config.api_secret = ''
-		  	config.user_manager_url = ''
-		  end
+        config.user_manager_url = 'http://localhost:3000'
+        config.colleges_url = 'http://localhost:3002'
+		  else
+		  	config.user_manager_url = 'http://account.collegezen.net'
+        config.colleges_url = 'http://localhost:3002'
+      end
 		  config.user_manager_users_url = config.user_manager_url+'/users/'	
 		  config.user_manager_auth_url = '/auth/usermanager'
 		  config.doorkeeper_auth_url = '/oauth/authorize'
