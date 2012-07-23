@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?, :check_login, :current_user, :user_id, :username,
                 :high_school_id, :college_id, :first_name, :last_name, :email,
                 :role, :find_username, :link_to_user, :find_first_name,
-                :find_last_name, :find_college, :find_user
+                :find_last_name, :find_college, :find_user, :find_counselors
 
   rescue_from OAuth2::Error do |exception|
     if exception.response.status == 401
@@ -101,8 +101,8 @@ class ApplicationController < ActionController::Base
     user_manager_access_token.get("/api/v1/users/#{user_id}") if user_manager_access_token
   end
 
-  def find_counselors(high_school_id)
-    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{high_school_id}") if user_manager_access_token
+  def find_counselors(hs_id)
+    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{hs_id}") if user_manager_access_token
   end
 
 end
