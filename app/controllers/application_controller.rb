@@ -102,7 +102,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_counselors(hs_id)
-    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{hs_id}") if user_manager_access_token
+    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{high_school_id}") if user_manager_access_token
   end
 
 end
