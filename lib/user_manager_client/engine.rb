@@ -15,7 +15,9 @@ module UserManagerClient
         config.colleges_url = 'http://localhost:3002'
 		  else
 		  	config.user_manager_url = 'http://account.collegezen.net'
-        config.colleges_url = 'http://localhost:3002'
+        config.colleges_url = 'http://dev.collegezen.net'
+        config.high_schools_url = 'http://hs.collegezen.net'
+        config.messaging_url = 'http://messaging.collegezen.net'
       end
 		  config.user_manager_users_url = config.user_manager_url+'/users/'	
 		  config.user_manager_auth_url = '/auth/usermanager'
