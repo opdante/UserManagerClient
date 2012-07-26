@@ -107,8 +107,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_counselors(high_school_id)
-    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{high_school_id}").parsed['first_name']
-    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{high_school_id}").parsed['last_name'] if user_manager_access_token
+    user_manager_access_token.get("/api/v1/users/for_hs_counselor?id=#{high_school_id}").parsed if user_manager_access_token
   end
 
   def find_hs_students(high_school_id)
