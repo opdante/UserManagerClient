@@ -118,4 +118,9 @@ class ApplicationController < ActionController::Base
     user_manager_access_token.get("/api/v1/users/for_hs_student?id=#{high_school_id}").parsed if user_manager_access_token
   end
 
+  def image_tagger(style=:small)
+    (photo_url.include?("missing.png")) ? "#{style.to_s}-missing.jpg" : (photo_url)
+  end
+  helper_method :image_tagger
+
 end

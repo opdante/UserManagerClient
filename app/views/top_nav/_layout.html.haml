@@ -1,0 +1,22 @@
+= content_for :top_nav do
+  - if logged_in?
+    .logged-in
+      .btn-group
+        %button{:class => 'btn btn-icon', :id => 'profile'}
+          .picture
+            = image_tag(image_tagger(:small))
+          .name
+            = first_name
+            = last_name
+        %button{:class => 'btn dropdown-toggle profile-drop-toggle', :data => {:toggle => 'dropdown'} }
+          %span{:class => 'caret'}
+        %ul.dropdown-menu
+          %li#logout
+            Sign Out
+  - else
+    .logged-out
+      .btn-group
+        %button{:class => 'btn', :id => 'login'}
+          Login
+        %button{:class => 'btn btn-warning', :id => 'signup'}
+          Signup
