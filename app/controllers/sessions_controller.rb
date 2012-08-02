@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       :last_sign_in_at => auth['info']['last_sign_in_at'],
       :access_token => auth['credentials']['token']
     }
-    cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now, :domain => ".collegezen.net" }
+    cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now, :domain => "collegezen.net" }
     redirect_to '/'
   end
 
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     if Rails.env.development?
       cookies.delete :user_manager_client
     else
-      cookies.delete :user_manager_client, :domain => '.collegezen.net'
+      cookies.delete :user_manager_client, :domain => 'collegezen.net'
     end
     redirect_to "#{UserManagerClient::Engine.config.user_manager_url}/logout"
   end
