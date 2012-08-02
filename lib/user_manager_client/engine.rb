@@ -28,10 +28,5 @@ module UserManagerClient
 		  config.high_school_info_api_call = '/api/v1/users/high_school_info'
 		  config.college_info_api_call = '/api/v1/users/college_info'
 		end
-    if !Rails.env.development?
-      Rails.configuration.session_store :cookie_store, {
-        :domain => ".collegezen.net"
-      }
-    end
   end
 end
