@@ -78,6 +78,10 @@ class ApplicationController < ActionController::Base
     JSON_decode(cookies.signed[:user_manager_client])['role']
   end
 
+  def top_schools
+    JSON_decode(cookies.signed[:user_manager_client])['top_schools']
+  end
+
   def find_username(user_id)
     user_manager_access_token.get("/api/v1/users/#{user_id}").parsed['username'] if user_manager_access_token
   end

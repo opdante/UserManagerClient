@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
       :college_id => auth['info']['college_id'],
       :high_school_id => auth['info']['high_school_id'],
       :photo_url => auth['info']['photo_url'],
+      :top_schools => auth['info']['top_schools'],
+      :last_sign_in_at => auth['info']['last_sign_in_at'],
       :access_token => auth['credentials']['token']
     }
     cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now }
@@ -21,7 +23,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete :user_manager_client
+    if Rails.env.development?
+      cookies.delete :user_manager_client
+    else
+      cookies.delete :user_manager_client, :domain => '.collegezen.net'
+    end
     redirect_to "#{UserManagerClient::Engine.config.user_manager_url}/logout"
   end
 
