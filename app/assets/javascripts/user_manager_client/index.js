@@ -9,7 +9,7 @@ $(document).ready(function() {
     window.location = "http://account.collegezen.net/";
   });
   $('#logout').click(function() {
-    window.location = "/logout";
+    window.location = "/signout";
   });
   $('.dropdown-toggle').dropdown();
 });
