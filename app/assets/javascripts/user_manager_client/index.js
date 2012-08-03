@@ -1,3 +1,5 @@
+//index.js
+
 $(document).ready(function() {
   $('#login').click(function() {
     window.location = "/login";

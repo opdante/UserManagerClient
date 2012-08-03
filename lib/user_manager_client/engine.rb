@@ -13,7 +13,6 @@ module UserManagerClient
   		if Rails.env.development?
         config.user_manager_url = 'http://localhost:3000'
         config.colleges_url = 'http://localhost:3002'
-        config.cookie_domain = nil
 		  else
 		  	config.user_manager_url = 'http://account.collegezen.net'
         config.colleges_url = 'http://dev.collegezen.net'
