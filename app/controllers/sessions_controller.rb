@@ -19,7 +19,12 @@ class SessionsController < ApplicationController
       :access_token => auth['credentials']['token']
     }
     cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now, :domain => "collegezen.net" }
-    redirect_to '/'
+    if session[:return_to]
+      redirect_to session[:return_to]
+      session[:return_to] = nil
+    else
+      redirect_to '/'
+    end
   end
 
   def destroy
