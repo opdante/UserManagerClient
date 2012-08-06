@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       :last_sign_in_at => auth['info']['last_sign_in_at'],
       :access_token => auth['credentials']['token']
     }
-    cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now, :domain => "collegezen.net" }
+    cookies.signed[:user_manager_client] = { :value => ActiveSupport::JSON.encode(h), :httponly => true, :expires => 2.hours.from_now } #, :domain => "collegezen.net" }
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil
