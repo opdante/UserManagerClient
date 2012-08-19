@@ -3,10 +3,10 @@ $(document).ready(function() {
     window.location = "/login";
   });
   $('#signup').click(function() {
-    window.location = "http://account.collegezen.net/signup";
+    window.location = "http://account.collegezen.com/signup";
   });
   $('#profile').click(function() {
-    window.location = "http://account.collegezen.net/";
+    window.location = "http://account.collegezen.com/";
   });
   $('#logout').click(function() {
     window.location = "/signout";
