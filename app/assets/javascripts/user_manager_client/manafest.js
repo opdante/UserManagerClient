@@ -1,2 +1,2 @@
-//= require bootstrap-dropdown
-//= require index
+//= require ./bootstrap-dropdown
+//= require ./index
