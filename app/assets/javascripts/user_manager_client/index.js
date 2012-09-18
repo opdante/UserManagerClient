@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#login').click(function() {
-    window.location = "/login";
+    window.location = "http://account.collegezen.com/login";
   });
   $('#signup').click(function() {
     window.location = "http://account.collegezen.com/signup";
